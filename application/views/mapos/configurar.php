@@ -5,8 +5,15 @@
                 <span class="icon">
                     <i class="fas fa-wrench"></i>
                 </span>
-                <h5>Configurações do Sistema  <?php echo $usuario; ?></h5>
+                <h5>Configurações do Sistema  </h5>
+                            <pre>
+<?php 
+  
+  print_r($this->session->userdata()); 
+?>
+</pre>
             </div>
+
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#home">Gerais</a></li>
                 <li><a data-toggle="tab" href="#menu1">Financeiro</a></li>
