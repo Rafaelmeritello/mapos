@@ -9,11 +9,11 @@ services:
     restart: always
     environment:
       # Aqui deve ser o nome do serviço abaixo
-      - DB_HOSTNAME=db_mapos 
+      - DB_HOSTNAME=db_mapos
       - DB_USERNAME=mapos
-      - DB_PASSWORD=mapos_pass
+      - DB_PASSWORD=${DB_PASSWORD}
       - DB_DATABASE=mapos_db
-      - BASE_URL=https://${COOLIFY_FQDN}/
+      - BASE_URL=${BASE_URL}
     networks:
       - mapos-network
     # ports:
