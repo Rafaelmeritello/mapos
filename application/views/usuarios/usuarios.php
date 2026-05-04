@@ -47,7 +47,14 @@
                             <td colspan="8">Nenhum Usuário Cadastrado</td>
                         </tr>
                     <?php else: ?>
-                        <?php foreach ($results as $r): ?>
+                      <?php foreach ($results as $r): ?>
+                    <?php 
+                
+                    if ($r->idUsuarios == 1 && $this->session->userdata('permissao') != 1) {
+                        continue; // Pula para a próxima iteração do loop sem desenhar o <tr>
+                    }
+                    ?>
+                    
                             <tr>
                                 <td><?= $r->idUsuarios ?></td>
                                 <td><?= $r->nome ?></td>
@@ -61,7 +68,9 @@
                                 <td><span class="badge <?= $situacaoClasse ?>"><?= ucfirst($situacao) ?></span></td>
                                 <td><?= $r->dataExpiracao ?></td>
                                 <td>
-                                    <a href="<?= base_url('index.php/usuarios/editar/' . $r->idUsuarios) ?>" class="btn-nwe3" title="Editar OS"><i class="bx bx-edit"></i></a>
+
+                                    <a href="<?= base_url('index.php/usuarios/editar/' . $r->idUsuarios) ?>" class="btn-nwe3" title="Editar Usuário"><i class="bx bx-edit"></i></a>
+                                        
                                 </td>
                             </tr>
                         <?php endforeach; ?>
