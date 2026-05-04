@@ -401,6 +401,7 @@ class Mapos extends MY_Controller
 
     public function configurar()
     {
+        $rotaConfiguracao = ($this->session->userdata('id_admin') == 1) ? 'mapos/configurar' : 'mapos/configurar2';
         if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'cSistema')) {
             $this->session->set_flashdata('error', 'Você não tem permissão para configurar o sistema');
             redirect(base_url());
@@ -482,13 +483,13 @@ class Mapos extends MY_Controller
             ];
             if ($this->mapos_model->saveConfiguracao($data) == true) {
                 $this->session->set_flashdata('success', 'Configurações do sistema atualizadas com sucesso!');
-                redirect(site_url('mapos/configurar'));
+                redirect(site_url($rotaConfiguracao));
             } else {
                 $this->data['custom_error'] = '<div class="alert">Ocorreu um errro.</div>';
             }
         }
 
-        $this->data['view'] = 'mapos/configurar2';
+        $this->data['view'] = $rotaConfiguracao;
 
         return $this->layout();
     }
