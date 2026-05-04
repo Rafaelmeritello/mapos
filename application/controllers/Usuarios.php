@@ -113,7 +113,7 @@ class Usuarios extends MY_Controller
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
         } else {
             if ($this->input->post('idUsuarios') == 1) {
-                $this->session->set_flashdata('error', 'O usuário super admin não pode ser atualizado!');
+                $this->session->set_flashdata('error', 'O usuário super admin não pode ser atualizado por aqui!');
                 redirect(base_url() . 'index.php/usuarios/editar/' . $this->input->post('idUsuarios'));
             }
 
