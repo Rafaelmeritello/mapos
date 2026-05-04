@@ -231,13 +231,10 @@ class Permissoes extends MY_Controller
                 'situacao' => $situacao,
             ];
             
-            if($this->input->post('idPermissao') == 1){
-                 $this->data['custom_error'] =  '<div class="form_error">Você não pode editar essa permissão</div>' ;
-                  $this->data['view'] = 'permissoes/editarPermissao';
-
-        return;
-                
-            }
+    if ($this->input->post('idPermissao') == 1) {
+    $this->session->set_flashdata('error', 'A permissão de Administrador é protegida e não pode ser alterada.');
+    redirect(site_url('permissoes'));
+}
             if ($this->permissoes_model->edit('permissoes', $data, 'idPermissao', $this->input->post('idPermissao')) == true) {
                 $this->session->set_flashdata('success', 'Permissão editada com sucesso!');
                 log_info('Alterou uma permissão. ID: ' . $this->input->post('idPermissao'));
