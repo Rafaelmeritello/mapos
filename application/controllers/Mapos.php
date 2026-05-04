@@ -488,7 +488,7 @@ class Mapos extends MY_Controller
             }
         }
 
-        $this->data['view'] = 'mapos/configurar';
+        $this->data['view'] = 'mapos/configurar2';
 
         return $this->layout();
     }
