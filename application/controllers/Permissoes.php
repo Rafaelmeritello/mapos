@@ -148,7 +148,14 @@ class Permissoes extends MY_Controller
     {
         $this->load->library('form_validation');
         $this->data['custom_error'] = '';
+        $id = $this->uri->segment(3) ?: $this->input->post('idPermissao');
 
+    // 2. TRAVA DE SEGURANÇA: Se for o Administrador (ID 1), bloqueia e sai imediatamente
+    if ($id == 1) {
+        $this->session->set_flashdata('error', 'A permissão de Administrador é protegida e não pode ser alterada.');
+        redirect(site_url('permissoes'));
+        return; // Garante que nada abaixo disso seja executado
+    }
         $this->form_validation->set_rules('nome', 'Nome', 'trim|required');
         if ($this->form_validation->run() == false) {
             $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">' . validation_errors() . '</div>' : false);
