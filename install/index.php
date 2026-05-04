@@ -1,5 +1,8 @@
 <?php
 
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
 $settings_file = __DIR__ . DIRECTORY_SEPARATOR . 'settings.json';
 
 if (! file_exists($settings_file)) {
