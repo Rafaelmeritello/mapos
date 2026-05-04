@@ -16,6 +16,8 @@ services:
       - BASE_URL=https://${COOLIFY_FQDN}
     networks:
       - mapos-network
+    ports:
+      - "80"
     depends_on:
       - db_mapos # Ajustado para coincidir com o nome do serviço
 
