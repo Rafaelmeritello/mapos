@@ -13,8 +13,7 @@
           <li class="active"><a data-toggle="tab" href="#home">Gerais</a></li>
                 <li><a data-toggle="tab" href="#menu1">Financeiro</a></li>
                
-                <li><a data-toggle="tab" href="#menu3">Notificações</a></li>
-              
+     
                  <?php 
 // Verifica se o usuário tem a permissão ID 1 (Admin)
 if ($this->session->userdata('permissao') == 1) { 
