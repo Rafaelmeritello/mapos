@@ -354,9 +354,8 @@ if ($this->session->userdata('permissao') == 1) {
             <h5 id="myModalLabel">Atualização de sistema</h5>
         </div>
         <div class="modal-body">
-            <h5 style="text-align: left">Deseja realmente fazer a atualização do banco de dados?</h5>
-            <h7 style="text-align: left">Recomendamos que faça um backup antes de prosseguir!
-                <a target="_blank" title="Fazer Bakup" class="btn btn-mini btn-inverse" href="<?php echo site_url() ?>/mapos/backup">Fazer Backup</a>
+            
+          
             </h7>
         </div>
         <div class="modal-footer" style="display:flex;justify-content: center">
@@ -367,10 +366,10 @@ if ($this->session->userdata('permissao') == 1) {
 </div>
 <script>
     $('#update-database').click(function() {
-        window.location = "<?= site_url('mapos/atualizarBanco') ?>"
+     
     });
     $('#update-mapos').click(function() {
-        window.location = "<?= site_url('mapos/atualizarMapos') ?>"
+        
     });
     $(document).ready(function() {
         $('#notifica_whats_select').change(function() {
