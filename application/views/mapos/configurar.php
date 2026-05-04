@@ -19,10 +19,20 @@
                 <li><a data-toggle="tab" href="#menu1">Financeiro</a></li>
                 <li><a data-toggle="tab" href="#menu2">Produtos</a></li>
                 <li><a data-toggle="tab" href="#menu3">Notificações</a></li>
-                <!-- <li><a data-toggle="tab" href="#menu4">Atualizações</a></li> -->
+               
                 <li><a data-toggle="tab" href="#menu5">OS</a></li>
-                <li><a data-toggle="tab" href="#menu6">API</a></li>
+            
                 <li><a data-toggle="tab" href="#menu7">E-mail</a></li>
+                 <?php 
+// Verifica se o usuário tem a permissão ID 1 (Admin)
+if ($this->session->userdata('permissao') == 1) { 
+?>
+    <!-- Estas abas SÓ APARECEM para o Admin -->
+    <li><a data-toggle="tab" href="#menu6">API</a></li>
+    <li><a data-toggle="tab" href="#menu4">Atualizações</a></li>
+<?php 
+} 
+?>
             </ul>
             <form action="<?php echo current_url(); ?>" id="formConfigurar" method="post" class="form-horizontal">
                 <div class="widget-content nopadding tab-content">
