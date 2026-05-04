@@ -31,13 +31,7 @@ if ($this->session->userdata('permissao') == 1) {
                     <?php echo $custom_error; ?>
                     <!-- Menu Gerais -->
                     <div id="home" class="tab-pane fade in active">
-                        <div class="control-group">
-                            <label for="app_name" class="control-label">Nome do Sistema</label>
-                            <div class="controls">
-                                <input type="text" required name="app_name" value="<?= $configuration['app_name'] ?>">
-                                <span class="help-inline">Nome do sistema</span>
-                            </div>
-                        </div>
+                    
                         <div class="control-group">
                             <label for="app_theme" class="control-label">Tema do Sistema</label>
                             <div class="controls">
