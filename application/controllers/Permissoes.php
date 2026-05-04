@@ -232,7 +232,11 @@ class Permissoes extends MY_Controller
             ];
             
             if($this->input->post('idPermissao') == 1){
-                return;
+                 $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">Você não pode editar essa permissão</div>' );
+                  $this->data['view'] = 'permissoes/editarPermissao';
+
+        return $this->layout();
+                
             }
             if ($this->permissoes_model->edit('permissoes', $data, 'idPermissao', $this->input->post('idPermissao')) == true) {
                 $this->session->set_flashdata('success', 'Permissão editada com sucesso!');
