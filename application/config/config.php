@@ -10,8 +10,7 @@ $config['app_version'] = '4.53.2';
 $config['app_name'] = getenv('APP_NAME') ?: 'Map-OS';
 $config['app_subname'] = getenv('APP_SUBNAME') ?: 'Sistema de Controle de Ordens de Serviço';
 date_default_timezone_set(getenv('APP_TIMEZONE') ?: 'America/Sao_Paulo');
-
-$config['base_url'] = getenv('BASE_URL') ?: 'http://localhost:8000/';
+$config['base_url'] = getenv('BASE_URL') ?: 'https://' . $_SERVER['HTTP_HOST'] . '/';
 $config['index_page'] = 'index.php';
 
 /*
