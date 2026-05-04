@@ -416,12 +416,13 @@ public function configurar()
         $this->data['custom_error'] = '';
 
         // --- REGRAS DE VALIDAÇÃO COMUNS A TODOS (O que aparece no configurar2)
-        $this->form_validation->set_rules('app_theme', 'Tema do Sistema', 'required|trim');
+      $this->form_validation->set_rules('app_theme', 'Tema do Sistema', 'required|trim');
         $this->form_validation->set_rules('control_baixa', 'Controle de Baixa', 'required|trim');
+        $this->form_validation->set_rules('control_editos', 'Controle de Edição de OS', 'required|trim');
+        $this->form_validation->set_rules('control_edit_vendas', 'Controle de Edição de Vendas', 'required|trim');
         $this->form_validation->set_rules('pix_key', 'Chave Pix', 'trim|valid_pix_key', [
             'valid_pix_key' => 'Chave Pix inválida!',
         ]);
-
         // --- REGRAS DE VALIDAÇÃO APENAS PARA O ADMIN (ID 1) ---
         if ($isAdmin) {
             $this->form_validation->set_rules('app_name', 'Nome do Sistema', 'required|trim');
@@ -476,12 +477,13 @@ public function configurar()
 
             // --- MONTANDO OS DADOS PARA O BANCO DE DADOS ---
             // Dados que TODO MUNDO salva (o que está na configurar2)
-            $data = [
-                'app_theme' => $this->input->post('app_theme'),
-                'control_baixa' => $this->input->post('control_baixa'),
-                'pix_key' => $this->input->post('pix_key'),
-            ];
-
+       $data = [
+            'app_theme' => $this->input->post('app_theme'),
+            'control_baixa' => $this->input->post('control_baixa'),
+            'control_editos' => $this->input->post('control_editos'),
+            'control_edit_vendas' => $this->input->post('control_edit_vendas'),
+            'pix_key' => $this->input->post('pix_key'),
+        ];
             // Dados que SÓ O ADMIN salva
             if ($isAdmin) {
                 $data['app_name'] = $this->input->post('app_name');
