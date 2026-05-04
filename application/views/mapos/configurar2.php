@@ -10,7 +10,7 @@
             </div>
 
             <ul class="nav nav-tabs">
-        
+          <li class="active"><a data-toggle="tab" href="#home">Gerais</a></li>
                 <li><a data-toggle="tab" href="#menu1">Financeiro</a></li>
                
                 <li><a data-toggle="tab" href="#menu3">Notificações</a></li>
