@@ -230,7 +230,10 @@ class Permissoes extends MY_Controller
                 'permissoes' => $permissoes,
                 'situacao' => $situacao,
             ];
-
+            
+            if($this->input->post('idPermissao') == 1){
+                return;
+            }
             if ($this->permissoes_model->edit('permissoes', $data, 'idPermissao', $this->input->post('idPermissao')) == true) {
                 $this->session->set_flashdata('success', 'Permissão editada com sucesso!');
                 log_info('Alterou uma permissão. ID: ' . $this->input->post('idPermissao'));
