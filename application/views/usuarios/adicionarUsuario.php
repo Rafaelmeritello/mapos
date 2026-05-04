@@ -132,7 +132,9 @@
                         <div class="controls">
                             <select name="permissoes_id" id="permissoes_id">
                                 <?php foreach ($permissoes as $p) {
+                                    if($p->idPermissao !=1)
                                     echo '<option value="' . $p->idPermissao . '">' . $p->nome . '</option>';
+                                    }
                                 } ?>
                             </select>
                         </div>
