@@ -28,7 +28,7 @@
 if ($this->session->userdata('permissao') == 1) { 
 ?>
     <!-- Estas abas SÓ APARECEM para o Admin -->
-    <li><a data-toggle="tab" href="#menu6">API</a></li>
+    <!-- <li><a data-toggle="tab" href="#menu6">API</a></li> -->
     <!-- <li><a data-toggle="tab" href="#menu4">Atualizações</a></li> -->
 <?php 
 } 
