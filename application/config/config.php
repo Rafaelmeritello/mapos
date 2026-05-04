@@ -7,55 +7,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 $config['app_version'] = '4.53.2';
 
-/**
- * Nome do sistema
- */
-$config['app_name'] = $_ENV['APP_NAME'] ?? 'Map-OS';
+$config['app_name'] = getenv('APP_NAME') ?: 'Map-OS';
+$config['app_subname'] = getenv('APP_SUBNAME') ?: 'Sistema de Controle de Ordens de Serviço';
+date_default_timezone_set(getenv('APP_TIMEZONE') ?: 'America/Sao_Paulo');
 
-/**
- * Descrição do sistema
- */
-$config['app_subname'] = $_ENV['APP_SUBNAME'] ?? 'Sistema de Controle de Ordens de Serviço';
-
-/**
- * Definição da hora local.
- */
-date_default_timezone_set($_ENV['APP_TIMEZONE'] ?? 'America/Sao_Paulo');
-
-/*
-|--------------------------------------------------------------------------
-| Base Site URL
-|--------------------------------------------------------------------------
-|
-| URL to your CodeIgniter root. Typically this will be your base URL,
-| WITH a trailing slash:
-|
-|	http://example.com/
-|
-| WARNING: You MUST set this value!
-|
-| If it is not set, then CodeIgniter will try guess the protocol and path
-| your installation, but due to security concerns the hostname will be set
-| to $_SERVER['SERVER_ADDR'] if available, or localhost otherwise.
-| The auto-detection mechanism exists only for convenience during
-| development and MUST NOT be used in production!
-|
-| If you need to allow multiple domains, remember that this file is still
-| a PHP script and you can easily do that on your own.
-|
-*/
-$config['base_url'] = $_ENV['APP_BASEURL'] ?? 'http://localhost:8000/';
-
-/*
-|--------------------------------------------------------------------------
-| Index File
-|--------------------------------------------------------------------------
-|
-| Typically this will be your index.php file, unless you've renamed it to
-| something else. If you are using mod_rewrite to remove the page set this
-| variable so that it is blank.
-|
-*/
+$config['base_url'] = getenv('BASE_URL') ?: 'http://localhost:8000/';
 $config['index_page'] = 'index.php';
 
 /*
