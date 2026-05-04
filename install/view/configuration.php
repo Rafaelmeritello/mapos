@@ -64,7 +64,7 @@
         <div class="form-group clearfix">
           <label for="base_url" class=" col-md-3">URL</label>
           <div class="col-md-9">
-            <input type="text" value="" id="base_url" name="base_url" class="form-control" placeholder="URL do sistema" />
+            <input type="text" value="" id="base_url" name="base_url" disabled class="form-control" placeholder="Informação já vinda do ambiente" />
           </div>
         </div>
       </div>
