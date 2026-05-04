@@ -69,7 +69,14 @@ class Usuarios extends MY_Controller
                 'permissoes_id' => $this->input->post('permissoes_id'),
                 'dataCadastro' => date('Y-m-d'),
             ];
-
+            $tentando_criar_admin = ($this->input->post('permissoes_id') == 1);
+        $sou_admin = ($this->session->userdata('permissao') == 1);
+        if($tentando_criar_admin && !$sou_admin){
+                    $this->data['custom_error'] = '<div class="form_error"><p>Ocorreu um erro.</p></div>';
+            $this->session->set_flashdata('error', 'Erro!');
+             redirect(site_url('usuarios/adicionar/'));
+            return;
+        }
             if ($this->usuarios_model->add('usuarios', $data) == true) {
                 $this->session->set_flashdata('success', 'Usuário cadastrado com sucesso!');
                 log_info('Adicionou um usuário.');
