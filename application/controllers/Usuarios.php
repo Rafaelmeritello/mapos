@@ -165,7 +165,11 @@ class Usuarios extends MY_Controller
                     'permissoes_id' => $this->input->post('permissoes_id'),
                 ];
             }
-
+            if($this->input->post('permissoes_id') == 1){
+            $this->session->set_flashdata('error', 'Você não pode colocar essa permissão no usuário');
+                redirect(base_url() . 'index.php/usuarios/editar/' . $this->input->post('idUsuarios'));
+                return
+            }
             if ($this->usuarios_model->edit('usuarios', $data, 'idUsuarios', $this->input->post('idUsuarios')) == true) {
                 $this->session->set_flashdata('success', 'Usuário editado com sucesso!');
                 log_info('Alterou um usuário. ID: ' . $this->input->post('idUsuarios'));
