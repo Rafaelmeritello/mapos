@@ -7,10 +7,10 @@
                 </span>
                 <h5>Configurações do Sistema  </h5>
                             <pre>
-<?php 
+// <?php 
   
-  print_r($this->session->userdata()); 
-?>
+//   print_r($this->session->userdata()); 
+// ?>
 </pre>
             </div>
 
