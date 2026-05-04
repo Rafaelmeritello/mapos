@@ -154,7 +154,9 @@ class Permissoes extends MY_Controller
     if ($id == 1) {
         $this->session->set_flashdata('error', 'A permissão de Administrador é protegida e não pode ser alterada.');
         redirect(site_url('permissoes'));
+             exit;
         return; // Garante que nada abaixo disso seja executado
+   
     }
         $this->form_validation->set_rules('nome', 'Nome', 'trim|required');
         if ($this->form_validation->run() == false) {
@@ -241,6 +243,7 @@ class Permissoes extends MY_Controller
     if ($this->input->post('idPermissao') == 1) {
     $this->session->set_flashdata('error', 'A permissão de Administrador é protegida e não pode ser alterada.');
     redirect(site_url('permissoes'));
+    exit;
 }
             if ($this->permissoes_model->edit('permissoes', $data, 'idPermissao', $this->input->post('idPermissao')) == true) {
                 $this->session->set_flashdata('success', 'Permissão editada com sucesso!');
