@@ -17,8 +17,8 @@ services:
       - APP_NAME=${APP_NAME}
     networks:
       - mapos-network
-    # ports:
-    #   - "80"
+    ports:
+      - "${HOST_PORT:-80}:80"
     depends_on:
       - db_mapos # Ajustado para coincidir com o nome do serviço
     healthcheck:
