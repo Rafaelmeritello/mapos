@@ -402,7 +402,7 @@ class Mapos extends MY_Controller
 public function configurar()
     {
         $isAdmin = ($this->session->userdata('id_admin') == 1);
-        $rotaConfiguracao = $isAdmin ? 'mapos/configuracoes' : 'mapos/configurar2';
+        $rotaConfiguracao = $isAdmin ? 'mapos/configurar' : 'mapos/configurar2';
 
         if (!$this->permission->checkPermission($this->session->userdata('permissao'), 'cSistema')) {
             $this->session->set_flashdata('error', 'Você não tem permissão para configurar o sistema');
