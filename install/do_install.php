@@ -12,15 +12,15 @@ if (! file_exists($settings_file)) {
 }
 
 if (! empty($_POST)) {
-    $host = $_POST['host'];
-    $dbuser = $_POST['dbuser'];
-    $dbpassword = $_POST['dbpassword'];
-    $dbname = $_POST['dbname'];
-
+$host       = getenv('DB_HOSTNAME') ?: (isset($_POST['host']) ? $_POST['host'] : '');
+    $dbuser     = getenv('DB_USERNAME') ?: (isset($_POST['dbuser']) ? $_POST['dbuser'] : '');
+    $dbpassword = getenv('DB_PASSWORD') ?: (isset($_POST['dbpassword']) ? $_POST['dbpassword'] : '');
+    $dbname     = getenv('DB_DATABASE') ?: (isset($_POST['dbname']) ? $_POST['dbname'] : '');
+    $base_url   = getenv('BASE_URL')    ?: (isset($_POST['base_url']) ? $_POST['base_url'] : '');
     $full_name = $_POST['full_name'];
     $email = $_POST['email'];
     $login_password = $_POST['password'] ? $_POST['password'] : '';
-    $base_url = $_POST['base_url'];
+
 
     //check required fields
     if (! ($host && $dbuser && $dbname && $full_name && $email && $login_password && $base_url)) {
