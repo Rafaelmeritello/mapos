@@ -235,7 +235,7 @@ class Permissoes extends MY_Controller
                  $this->data['custom_error'] =  '<div class="form_error">Você não pode editar essa permissão</div>' ;
                   $this->data['view'] = 'permissoes/editarPermissao';
 
-        return $this->layout();
+        return;
                 
             }
             if ($this->permissoes_model->edit('permissoes', $data, 'idPermissao', $this->input->post('idPermissao')) == true) {
