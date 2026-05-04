@@ -232,7 +232,7 @@ class Permissoes extends MY_Controller
             ];
             
             if($this->input->post('idPermissao') == 1){
-                 $this->data['custom_error'] = (validation_errors() ? '<div class="form_error">Você não pode editar essa permissão</div>' );
+                 $this->data['custom_error'] =  '<div class="form_error">Você não pode editar essa permissão</div>' ;
                   $this->data['view'] = 'permissoes/editarPermissao';
 
         return $this->layout();
