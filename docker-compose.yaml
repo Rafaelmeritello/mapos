@@ -13,7 +13,7 @@ services:
       - DB_USERNAME=mapos
       - DB_PASSWORD=mapos_pass
       - DB_DATABASE=mapos_db
-      - BASE_URL=https://${COOLIFY_FQDN}
+      - BASE_URL=https://${COOLIFY_FQDN}/
     networks:
       - mapos-network
     # ports:
